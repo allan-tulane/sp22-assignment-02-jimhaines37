@@ -60,11 +60,11 @@ def subquadratic_multiply(x, y):
     left = subquadratic_multiply(xleft, yleft)
     right = subquadratic_multiply(xright, yright)
 
+    left = bit_shift(left, len(xvec))
+
     x = xleft + xright
     y = yleft + yright
-
-    left = bit_shift(left, len(xvec))
-    middle = subquadratic_multiply(x, y)-left-right
+    middle = subquadratic_multiply(x, y) - left - right #account for extra terms from thr product that we dont want
     middle = bit_shift(middle, len(xvec)//2)
     
 
